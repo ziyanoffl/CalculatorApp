@@ -4,14 +4,7 @@ on:
   push:
     branches:
       - Dev
-
-  pull_request:
-    branches:
       - master
-
-# on:
-#   schedule:
-#     - cron:  '*/15 * * * *'
 
 jobs:
   test:
