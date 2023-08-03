@@ -61,7 +61,7 @@ resource "azurerm_app_service" "calculatorwebapp" {
     always_on                = false
     ftps_state               = "FtpsOnly"
     ip_restriction           = []
-    linux_fx_version         = "DOCKER|appcr.azurecr.io/appcr/calculatorapp:185e39c35a0f0a5085bc5fa428b58e77dbc3ce22"
+    # linux_fx_version         = "DOCKER|appcr.azurecr.io/appcr/calculatorapp:185e39c35a0f0a5085bc5fa428b58e77dbc3ce22"
     local_mysql_enabled      = false
     managed_pipeline_mode    = "Integrated"
     min_tls_version          = "1.2"
