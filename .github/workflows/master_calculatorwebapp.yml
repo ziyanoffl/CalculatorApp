@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://appcr.azurecr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_a8d8857737464c5f8e568eb62ac63ae5 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_197ea5f33180438da3d086eab9f45380 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_5596a6a80fce46b29628966145aa57f2 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_6b98be9f3daf4934b31c7022f58d0288 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: appcr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_a8d8857737464c5f8e568eb62ac63ae5 }}/calculatorapp:${{ github.sha }}
+        tags: appcr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_5596a6a80fce46b29628966145aa57f2 }}/appcr/calculatorapp:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'calculatorwebapp'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_aba6a4f258024ad39c0bd5c18fceea5e }}
-        images: 'appcr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_a8d8857737464c5f8e568eb62ac63ae5 }}/calculatorapp:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_51a70768ef5947a4aff02d3901a4c257 }}
+        images: 'appcr.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_5596a6a80fce46b29628966145aa57f2 }}/appcr/calculatorapp:${{ github.sha }}'
