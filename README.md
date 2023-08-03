@@ -5,7 +5,7 @@
 3. Docker
 
 ## Run application using Django
-### Run the following commands to install requirements and create Virtual Env
+### Run the following commands to install requirements and create Virtual Environment
 1. Run "python -m venv venv"
 2. Run "python pip install -r requirements.txt"
 
