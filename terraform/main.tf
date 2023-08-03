@@ -44,9 +44,10 @@ resource "azurerm_app_service_plan" "appservice" {
   resource_group_name = azurerm_resource_group.devopsprojectb.name
 
   sku {
-    tier = "Basic"
-    size = "B1"
+    tier = "PremiumV2"
+    size = "P1v2"
   }
+  zone_redundant = false
   timeouts {}
 }
 
@@ -57,7 +58,18 @@ resource "azurerm_app_service" "calculatorwebapp" {
   app_service_plan_id = azurerm_app_service_plan.appservice.id
 
   site_config {
-    always_on = false
+    always_on                = false
+    ftps_state               = "FtpsOnly"
+    ip_restriction           = []
+    linux_fx_version         = "DOCKER|appcr.azurecr.io/appcr/calculatorapp:185e39c35a0f0a5085bc5fa428b58e77dbc3ce22"
+    local_mysql_enabled      = false
+    managed_pipeline_mode    = "Integrated"
+    min_tls_version          = "1.2"
+    number_of_workers        = 1
+    remote_debugging_version = "VS2019"
+    scm_ip_restriction       = []
+    vnet_route_all_enabled   = false
+    websockets_enabled       = false
     default_documents = [
       "Default.htm",
       "Default.html",
@@ -70,6 +82,7 @@ resource "azurerm_app_service" "calculatorwebapp" {
       "hostingstart.html",
     ]
     use_32_bit_worker_process = true
+    health_check_path         = "/"
   }
   https_only = true
 
@@ -79,6 +92,7 @@ resource "azurerm_app_service" "calculatorwebapp" {
     DOCKER_REGISTRY_SERVER_USERNAME     = azurerm_container_registry.appcr.admin_username
     DOCKER_REGISTRY_SERVER_PASSWORD     = "LSrXwaiUbuCU5+XHnSQyLt9aeOLaRa/b7XqqsMXg/X+ACRCEoc34"
     WEBSITES_PORT                       = "8080"
+    WEBSITE_HEALTHCHECK_MAXPINGFAILURES = "10"
   }
   timeouts {}
 }
