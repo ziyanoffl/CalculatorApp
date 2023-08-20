@@ -8,7 +8,7 @@
 ### Run the following commands to install requirements and create Virtual Environment
 1. Run "python -m venv venv"
 2. Activate virtual env with the command "venv/Scripts/activate"
-3. Run "python pip install -r requirements.txt"
+3. Run "pip install -r requirements.txt"
 
 ### Run application
 1. Run "python manage.py runserver"
