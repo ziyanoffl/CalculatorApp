@@ -7,11 +7,11 @@
 ## Run application using Django
 ### Run the following commands to install requirements and create Virtual Environment
 1. Run "python -m venv venv"
-2. Run "python pip install -r requirements.txt"
+2. Activate virtual env with the command "venv/Scripts/activate"
+3. Run "python pip install -r requirements.txt"
 
 ### Run application
-1. Activate virtual env with the command "venv/Scripts/activate"
-2. Run "python manage.py runserver"
+1. Run "python manage.py runserver"
 
 # Languages and tools used for this application
 ## Lanuages
